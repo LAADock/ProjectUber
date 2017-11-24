@@ -1,0 +1,995 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10400.17.0915.2112                               -->
+<workbook original-version='10.4' source-build='10.4.0 (10400.17.0915.2112)' source-platform='win' version='10.4' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <repository-location id='1_PHVsvsTaxis' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='10.4'>
+      <aliases enabled='yes' />
+      <column caption='Area Parameter' datatype='string' name='[Area Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;North East&quot;'>
+        <calculation class='tableau' formula='&quot;North East&quot;' />
+        <aliases>
+          <alias key='&quot;London1&quot;' value='London' />
+        </aliases>
+        <members>
+          <member value='&quot;East Midlands&quot;' />
+          <member value='&quot;East of England&quot;' />
+          <member value='&quot;England&quot;' />
+          <member value='&quot;England and Wales&quot;' />
+          <member alias='London' value='&quot;London1&quot;' />
+          <member value='&quot;North East&quot;' />
+          <member value='&quot;North West&quot;' />
+          <member value='&quot;South East&quot;' />
+          <member value='&quot;South West&quot;' />
+          <member value='&quot;Wales&quot;' />
+          <member value='&quot;West Midlands&quot;' />
+          <member value='&quot;Yorkshire and the Humber&quot;' />
+        </members>
+      </column>
+      <column caption='Year Parameter' datatype='string' name='[Year Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;2013&quot;'>
+        <calculation class='tableau' formula='&quot;2013&quot;' />
+        <members>
+          <member value='&quot;2007&quot;' />
+          <member value='&quot;2009&quot;' />
+          <member value='&quot;2011&quot;' />
+          <member value='&quot;2013&quot;' />
+          <member value='&quot;2015&quot;' />
+          <member value='&quot;2017&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='Taxi Vs PHV (Taxi_PHV)' inline='true' name='federated.1e62pdh1gdnk6o1bsuc2q057w10t' version='10.4'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Taxi_PHV' name='excel-direct.1d26bbx1aecm4y1e9z9ok11lkr9i'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/Student/Documents/YAASSS UBER/Research/Taxi_PHV.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.1d26bbx1aecm4y1e9z9ok11lkr9i' name='Taxi Vs PHV' table='[&apos;Taxi Vs PHV$&apos;]' type='table'>
+          <columns gridOrigin='A1:G73:no:A1:G73:0' header='yes' outcome='2'>
+            <column datatype='string' name='Area' ordinal='0' />
+            <column datatype='string' name='Year' ordinal='1' />
+            <column datatype='real' name='Taxi' ordinal='2' />
+            <column datatype='real' name='PHV' ordinal='3' />
+            <column datatype='real' name='Total' ordinal='4' />
+            <column datatype='real' name='% PHVs' ordinal='5' />
+            <column datatype='real' name='%Taxis' ordinal='6' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Area</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Area]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>Area</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RGB_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RGB_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Taxi</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Taxi]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>Taxi</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PHV</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[PHV]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>PHV</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Total]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>Total</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>% PHVs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[% PHVs]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>% PHVs</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>%Taxis</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[%Taxis]</local-name>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias>%Taxis</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Taxi Vs PHV]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:G73:no:A1:G73:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='real' name='[% PHVs]' role='measure' type='quantitative' />
+      <column datatype='real' name='[%Taxis]' role='measure' type='quantitative' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\% PHVs:qk]&quot;' value='% of PHVs' />
+          <alias key='&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\%Taxis:qk]&quot;' value='% of Taxis' />
+        </aliases>
+      </column>
+      <column caption='%Diff' datatype='real' name='[Calculation_68679899742523395]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='([PHV] - [Taxi])/[PHV]' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='real' name='[PHV]' role='measure' type='quantitative' />
+      <column datatype='real' name='[Taxi]' role='measure' type='quantitative' />
+      <column-instance column='[% PHVs]' derivation='Max' name='[max:% PHVs:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[%Taxis]' derivation='Max' name='[max:%Taxis:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[PHV]' derivation='Median' name='[med:PHV:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Taxi]' derivation='Median' name='[med:Taxi:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_68679899742523395]' derivation='Sum' name='[sum:Calculation_68679899742523395:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[PHV]' derivation='Sum' name='[sum:PHV:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Taxi]' derivation='Sum' name='[sum:Taxi:qk]' pivot='key' type='quantitative' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection class='dataengine' dbname='C:/Users/Student/Documents/My Tableau Repository/Datasources/Taxi Vs PHV (Taxi_PHV).tde' schema='Extract' tablename='Extract' update-time='11/24/2017 03:42:44 PM'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <calculations>
+            <calculation column='[Calculation_68679899742523395]' formula='([PHV] - [Taxi])/[PHV]' />
+            <calculation column='[Number of Records]' formula='1' />
+          </calculations>
+          <refresh>
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='72' timestamp-start='2017-11-24 15:42:44.234' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>% PHVs</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[% PHVs]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>% PHVs</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>46.10254983069386</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.64031319209297033</statistic>
+                <statistic aggregation='Min' datatype='real'>0.44617766134794001</statistic>
+                <statistic aggregation='Max' datatype='real'>0.8197051552055673</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.094605675819992102</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.093946394785683368</statistic>
+                <statistic aggregation='Var' datatype='real'>0.0089502338973574385</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.0088259250932274744</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>30.15553745242919</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>%Taxis</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[%Taxis]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>%Taxis</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>25.897450169306172</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.35968680790703017</statistic>
+                <statistic aggregation='Min' datatype='real'>0.18029484479443275</statistic>
+                <statistic aggregation='Max' datatype='real'>0.55382233865205999</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.094605675819994919</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.093946394785686158</statistic>
+                <statistic aggregation='Var' datatype='real'>0.0089502338973579711</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.0088259250932280001</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>9.95043779104153</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Area</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Area]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Area</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;East Midlands&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Yorkshire and the Humber&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_GB&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Calculation_68679899742523395</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Calculation_68679899742523395]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Calculation_68679899742523395</remote-alias>
+              <ordinal>3</ordinal>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>28.897454107082339</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.40135352926503248</statistic>
+                <statistic aggregation='Min' datatype='real'>-0.24125967440619162</statistic>
+                <statistic aggregation='Max' datatype='real'>0.78004915102770322</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.25739138131226952</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.25559769129713145</statistic>
+                <statistic aggregation='Var' datatype='real'>0.066250323173838124</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.065330179796423707</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>16.301868137994312</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Number of Records</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[Number of Records]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Number of Records</remote-alias>
+              <ordinal>4</ordinal>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>72.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>1.0</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.0</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+                <statistic aggregation='Var' datatype='real'>0.0</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='Median' datatype='integer'>1</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>72.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PHV</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[PHV]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PHV</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>2888.2629999999995</statistic>
+                <statistic aggregation='Avg' datatype='real'>40.114763888888881</statistic>
+                <statistic aggregation='Min' datatype='real'>3.7469999999999999</statistic>
+                <statistic aggregation='Max' datatype='real'>210.25</statistic>
+                <statistic aggregation='Stdev' datatype='real'>56.615262098347607</statistic>
+                <statistic aggregation='StdevP' datatype='real'>56.220725848483717</statistic>
+                <statistic aggregation='Var' datatype='real'>3205.2879024645954</statistic>
+                <statistic aggregation='VarP' datatype='real'>3160.7700149303651</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>343437.42936900008</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Taxi</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Taxi]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Taxi</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>1372.3139999999996</statistic>
+                <statistic aggregation='Avg' datatype='real'>19.059916666666663</statistic>
+                <statistic aggregation='Min' datatype='real'>3.8010000000000002</statistic>
+                <statistic aggregation='Max' datatype='real'>81.215999999999994</statistic>
+                <statistic aggregation='Stdev' datatype='real'>25.848841804086241</statistic>
+                <statistic aggregation='StdevP' datatype='real'>25.668708307733375</statistic>
+                <statistic aggregation='Var' datatype='real'>668.16262261267639</statistic>
+                <statistic aggregation='VarP' datatype='real'>658.88258618750035</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>73595.736686000004</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Total</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Total]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Total</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>4260.5769999999993</statistic>
+                <statistic aggregation='Avg' datatype='real'>59.174680555555547</statistic>
+                <statistic aggregation='Min' datatype='real'>8.3979999999999997</statistic>
+                <statistic aggregation='Max' datatype='real'>290.88400000000001</statistic>
+                <statistic aggregation='Stdev' datatype='real'>82.140656271418607</statistic>
+                <statistic aggregation='StdevP' datatype='real'>81.568240543122783</statistic>
+                <statistic aggregation='Var' datatype='real'>6747.0874126993403</statistic>
+                <statistic aggregation='VarP' datatype='real'>6653.3778653007384</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>731161.48925900029</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Taxi Vs PHV</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;2007&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;2017&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>72</statistic>
+                <statistic aggregation='Median' datatype='string'>&quot;2013&quot;</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_GB&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>0</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.297229' measure-ordering='alphabetic' measure-percentage='0.433249' parameter-percentage='0.269521' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[med:PHV:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[sum:PHV:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\%Taxis:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\% PHVs:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[sum:Calculation_68679899742523395:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[med:Taxi:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[sum:Taxi:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='% PHVs Vs Taxis'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Taxi Vs PHV (Taxi_PHV)' name='federated.1e62pdh1gdnk6o1bsuc2q057w10t' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1e62pdh1gdnk6o1bsuc2q057w10t'>
+            <column datatype='real' name='[% PHVs]' role='measure' type='quantitative' />
+            <column datatype='real' name='[%Taxis]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Area]' role='dimension' type='nominal' />
+            <column-instance column='[% PHVs]' derivation='Max' name='[max:% PHVs:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[%Taxis]' derivation='Max' name='[max:%Taxis:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Area]' derivation='None' name='[none:Area:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\% PHVs:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\%Taxis:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[none:Area:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Area:nk]' member='&quot;East Midlands&quot;' />
+              <groupfilter function='member' level='[none:Area:nk]' member='&quot;East of England&quot;' />
+              <groupfilter from='&quot;North East&quot;' function='range' level='[none:Area:nk]' to='&quot;South West&quot;' />
+              <groupfilter function='member' level='[none:Area:nk]' member='&quot;West Midlands&quot;' />
+              <groupfilter function='member' level='[none:Area:nk]' member='&quot;Yorkshire and the Humber&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[none:Area:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;South West&quot;</bucket>
+              <bucket>&quot;North East&quot;</bucket>
+              <bucket>&quot;East of England&quot;</bucket>
+              <bucket>&quot;East Midlands&quot;</bucket>
+              <bucket>&quot;South East&quot;</bucket>
+              <bucket>&quot;West Midlands&quot;</bucket>
+              <bucket>&quot;North West&quot;</bucket>
+              <bucket>&quot;Yorkshire and the Humber&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]</column>
+            <column>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[none:Area:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[Multiple Values]</rows>
+        <cols>([federated.1e62pdh1gdnk6o1bsuc2q057w10t].[none:Area:nk] / [federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names])</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='1. PHV vs Taxis'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='5' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='3' type='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='98000' id='1' name='% PHVs Vs Taxis' w='54500' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='21500' id='7' is-centered='0' is-scaled='1' param='E:/Uber/gov.jpg' type='bitmap' w='27900' x='55300' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone forceUpdate='true' h='76500' id='8' type='text' w='27900' x='55300' y='22500'>
+                <formatted-text>
+                  <run>We began by looking at England by Area in order to identify areas for Uber to focus on. &#10;&#10;Comparing the number of PHVs as a percentage of the total number PHVs and taxis, in comparison to the percentage of taxis, we can see that Yorkshire, West Midlands and the North West have the most PHVs with significantly less taxis. &#10;&#10;We assumed that this indicated that Uber would thrive more in these areas where PHVs are used more than taxis. &#10;&#10;We decided to filter our search to North West, West Midlands and Yorkshire. </run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='4' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='8250' id='6' name='% PHVs Vs Taxis' pane-specification-id='0' param='[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]' type='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='dashboard' maximized='true' name='1. PHV vs Taxis'>
+      <viewpoints>
+        <viewpoint name='% PHVs Vs Taxis'>
+          <zoom type='entire-view' />
+          <selection-collection>
+            <node-selection select-tuples='false'>
+              <oriented-node-reference orientation='horizontal'>
+                <node-reference>
+                  <fields>
+                    <field>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[none:Area:nk]</field>
+                    <field>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]</field>
+                  </fields>
+                  <multibucket>
+                    <bucket>&quot;South West&quot;</bucket>
+                    <bucket>&quot;[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[max:\%Taxis:qk]&quot;</bucket>
+                  </multibucket>
+                </node-reference>
+                <page-reference />
+              </oriented-node-reference>
+            </node-selection>
+          </selection-collection>
+          <highlight>
+            <color-one-way>
+              <field>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='worksheet' hidden='true' name='% PHVs Vs Taxis'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='horizontal'>
+              <node-reference>
+                <fields>
+                  <field>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[none:Area:nk]</field>
+                </fields>
+                <multibucket>
+                  <bucket>&quot;Wales&quot;</bucket>
+                </multibucket>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1e62pdh1gdnk6o1bsuc2q057w10t].[:Measure Names]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='1. PHV vs Taxis' width='192'>
+      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
+      TkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
